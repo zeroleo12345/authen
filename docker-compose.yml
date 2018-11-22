@@ -1,0 +1,25 @@
+version: '3.5'
+
+services:
+  auth:
+    container_name: auth
+    build:
+       context: .
+       dockerfile: ./Dockerfile
+    ports:
+      - "8001:8001"
+    env_file:
+      - .env
+    volumes:        # 挂载盘(多用于输出程序文件, 日志等)
+      - .:/app     # 机路径:docker内部路径.(把主机下的src目录挂在到docker下, 实现边开发, 边调试)
+    entrypoint: /app/bin/auth.sh      # docker启动期执行程序
+    #entrypoint: sh      # 用于调试
+    tty: true
+    restart: unless-stopped
+    networks:
+      - pppoe_system
+
+
+networks:
+  pppoe_system:
+    name: pppoe_system_network_name
