@@ -136,5 +136,6 @@ ENV/
 
 # Self Define
 *.log
-run/backup/
+run/backup/*
+!run/backup/.gitkeep
 .qiniu_pythonsdk_hostscache.json
