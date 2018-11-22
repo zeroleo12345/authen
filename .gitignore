@@ -135,7 +135,7 @@ ENV/
 .mypy_cache/
 
 # Self Define
-*.log
+*.tmp
 run/backup/*
 !run/backup/.gitkeep
 .qiniu_pythonsdk_hostscache.json
